@@ -1,7 +1,9 @@
-/*jslint node:true */
+/*jslint node:true, stupid:true */
 "use strict";
 
-var browserResolve = require('browser-resolve');
+var browserResolve = require('browser-resolve'),
+    fs = require('fs'),
+    DIR_SEP = require('path').sep;
 
 module.exports = function (jsDirs) {
 
@@ -23,7 +25,7 @@ module.exports = function (jsDirs) {
         for (i; i < len; i++) {
             name = dirs[i].name;
             name = (!name && !namespacedPaths.main) ? 'main' : name;
-            namespacedPaths[name] = dirs[i].path;
+            namespacedPaths[name] = fs.realpathSync(dirs[i].path) + DIR_SEP;
         }
         return resolver;
     };
