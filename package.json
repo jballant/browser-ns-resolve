@@ -1,7 +1,7 @@
 {
   "name": "browser-ns-resolve",
   "description": "Wrapper for browser-resolve that adds a simple way to namespace paths",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "start": "node index.js"
   },
