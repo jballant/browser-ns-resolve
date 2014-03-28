@@ -91,7 +91,7 @@ module.exports = function (jsDirs) {
         var mainRootJSPath = namespacedPaths.main;
         if (pkg && (pkg.charAt(0) === '@')) {
             pkg = resolver.findNamespacedJSFile(pkg);
-        } else if (mainRootJSPath) {
+        } else if (mainRootJSPath && opts.paths.indexOf(mainRootJSPath) === -1) {
             opts.paths.push(mainRootJSPath);
         }
         return browserResolve(pkg, opts, cb);
